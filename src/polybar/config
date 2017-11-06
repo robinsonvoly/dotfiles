@@ -214,7 +214,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = %a %b %d,
+date =
 time = %H:%M 
 
 date-alt = %A, %d %B %Y
@@ -276,7 +276,7 @@ format-spacing = 1
 label-open = 
 label-open-foreground = ${colors.text-color}
 label-close =  cancel
-label-close-foreground = ${colors.secondary}
+label-close-foreground = ${colors.primary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 

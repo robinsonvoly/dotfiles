@@ -188,7 +188,7 @@ exec_always $HOME/.bin/scripts/launch_polybar.sh
 bindsym $mod+d exec rofi -show run -lines 12
 
 # f.lux
-# exec /usr/bin/xflux -z 92507 -r 0 -k 3000
+exec /usr/bin/xflux -z 92507 -r 0
 
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/galaxy.png
