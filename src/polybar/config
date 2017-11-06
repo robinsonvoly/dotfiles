@@ -4,14 +4,16 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #182330
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
-primary = #7fcccc
+primary = #00b2b2
 secondary = #e60053
 alert = #bd2c40
+text-color = #f3f4f5
+text-inactive-color = #676e7d
 
 [bar/rob]
 monitor = ${env:MONITOR:}
@@ -25,7 +27,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
+line-size = 3
 line-color = #f00
 
 border-size = 4
@@ -97,7 +99,7 @@ type = internal/bspwm
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
-label-focused-padding = 2
+label-focused-padding = 3
 
 label-occupied = %index%
 label-occupied-padding = 2
@@ -119,33 +121,37 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-ws-icon-0 = 1 ; 
-ws-icon-1 = 2 ; 
-ws-icon-2 = 3 ; 
-ws-icon-3 = 10 ; 
+ws-icon-0 = 1 ;  
+ws-icon-1 = 2 ;  
+ws-icon-2 = 3 ;  
+ws-icon-3 = 10 ;  
 
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index% %icon%
-label-focused-background = ${module/bspwm.label-focused-background}
+label-focused = %index%%icon%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.text-color}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index% %icon%
+label-unfocused = %index%%icon%
+label-unfocused-foreground = ${colors.text-inactive-color}
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index% %icon%
+label-visible = %index%%icon%
 label-visible-background = ${self.label-focused-background}
+label-visible-foreground = ${colors.text-color}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index% %icon%
+label-urgent = %index%%icon%
+label-urgent-foreground = ${colors.text-color}
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
