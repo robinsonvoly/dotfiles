@@ -196,6 +196,9 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/galaxy.png
 # Lock
 bindsym $mod+shift+x exec $HOME/.bin/scripts/lock.sh
 
+# Mouse focus
+focus_follows_mouse no
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
