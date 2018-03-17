@@ -189,7 +189,7 @@ exec_always $HOME/.bin/scripts/launch_polybar.sh
 
 # show rofi
 ## 2f343f
-bindsym $mod+d exec rofi -show run -lines 12
+bindsym $mod+d exec rofi -show run -display-run "run:" -lines 12
 
 # f.lux
 exec /usr/bin/xflux -z 92507 -r 0
@@ -197,8 +197,8 @@ exec /usr/bin/xflux -z 92507 -r 0
 # Wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/galaxy.png
 
-# Lock
-bindsym $mod+shift+x exec $HOME/.bin/scripts/lock.sh
+# Lock with i3lock-color
+bindsym $mod+shift+x exec $HOME/.bin/scripts/betterlockscreen -l
 
 # Mouse focus
 focus_follows_mouse no
@@ -237,3 +237,4 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b -f
 
 # Gnome Keyring
 exec $HOME/.bin/scripts/start_gnome_keyring.sh
+
