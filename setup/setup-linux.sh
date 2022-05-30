@@ -16,7 +16,7 @@ set -eu -o pipefail
 if ! command -v fish &> /dev/null
 then
   echo -e "installing ${IBlue}fish${NC}\n"
-  apt install fish
+  sudo apt install fish
 else
   echo -e "\n${IBlue}fish${NC} already installed"
 fi
@@ -25,7 +25,7 @@ fi
 if ! command -v exa &> /dev/null
 then
   echo -e "installing ${IBlue}exa${NC}\n"
-  apt install exa
+  sudo apt install exa
 else
   echo -e "\n${IBlue}exa${NC} already installed"
 fi
@@ -34,16 +34,13 @@ fi
 if ! command -v peco &> /dev/null
 then
   echo -e "installing ${IBlue}peco${NC}\n"
-  apt install peco
+  sudo apt install peco
 else
   echo -e "\n${IBlue}peco${NC} already installed"
 fi
 
-# remove sudo, so fisher doesn't use root during installs
-sudo -k
-
 # install fisher
-if [[ $(fish -c "fisher") ]]; then
+if [[ $(fish -c 'fisher') ]]; then
   echo -e "\n${IBlue}fisher${NC} already installed"
 else
   echo -e "\nno ${IBlue}fisher${NC} installed"
@@ -75,3 +72,10 @@ else
   echo -e "installing ${IBlue}z${NC}"
   fish -C "fisher install jethrokuan/z; exit;"
 fi
+
+# copy configuration files to `~/.config/fish` directory
+echo -e "\ncopying configuration files to ${IGreen}~/.config/fish${NC}"
+cp ../.config/fish/conf.d/tide.fish ~/.config/fish/conf.d/
+cp ../.config/fish/config.fish ~/.config/fish/
+cp ../.config/fish/config-linux.fish ~/.config/fish/
+cp -a ../.config/fish/functions/. ~/.config/fish/functions/
